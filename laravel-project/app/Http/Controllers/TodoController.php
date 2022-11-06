@@ -92,6 +92,7 @@ class TodoController extends Controller
             $todo->title . 'を更新しました!'
         );
     }
+
     /**
      * Remove the specified resource from storage.
      *

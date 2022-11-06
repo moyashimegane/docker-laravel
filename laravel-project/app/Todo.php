@@ -1,32 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace App;
 
-class CreateTodosTable extends Migration
+use Illuminate\Database\Eloquent\Model;
+
+class Todo extends Model
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('todos', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('title');
-            $table->timestamps();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('todos');
-    }
+    //
 }
