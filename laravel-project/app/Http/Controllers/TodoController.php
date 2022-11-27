@@ -39,6 +39,7 @@ class TodoController extends Controller
     {
         $todo = new Todo();
         $todo->title = $request->input('title');
+        $todo->description = $request->input('description');
         $todo->save();
 
         return redirect('todos')->with(

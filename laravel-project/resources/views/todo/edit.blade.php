@@ -19,6 +19,10 @@
             <label for="title" class="control-label">タイトル</label>
             <input class="form-control" name="title" type="text" value="{{ $todo->title }}">
           </div>
+          <div class="form-group">
+            <label for="description" class="control-label">内容</label>
+            <input class="form-control" name="description" type="text" value="{{ $todo->description }}">
+          </div>
           <hr>
           <button class="btn btn-primary" type="submit">更新</button>
         </form>

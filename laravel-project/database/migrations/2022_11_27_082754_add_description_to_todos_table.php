@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTitleToTodosTable extends Migration
+class AddDescriptionToTodosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddTitleToTodosTable extends Migration
     public function up()
     {
         Schema::table('todos', function (Blueprint $table) {
-            $table->string('title');
+            $table->text('description', 280)->after('title');
         });
     }
 
@@ -26,7 +26,7 @@ class AddTitleToTodosTable extends Migration
     public function down()
     {
         Schema::table('todos', function (Blueprint $table) {
-            $table->dropColumn('title');
+            $table->dropColumn('description');
         });
     }
 }

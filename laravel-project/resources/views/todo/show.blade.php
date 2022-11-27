@@ -17,6 +17,10 @@
               <th>title</th>
               <td>{{$todo->title}}</td>
             </tr>
+            <tr>
+              <th>description</th>
+              <td>{{$todo->description}}</td>
+            </tr>
           </tbody>
         </table>
         <a href="{{ url('todos') }}" class="btn btn-info">戻る</a>

@@ -18,6 +18,7 @@
             <tr>
               <th>ToDo ID</th>
               <th>タイトル</th>
+              <th>内容</th>
               <th>作成日</th>
               <th>更新日</th>
               <th></th>
@@ -30,6 +31,7 @@
             <tr>
               <td>{{ $todo->id }}</td>
               <td>{{ $todo->title }}</td>
+              <td>{{ $todo->description }}</td>
               <td>{{ $todo->created_at }}</td>
               <td>{{ $todo->updated_at }}</td>
               <td><a href="{{ url('todos/' . $todo->id) }}" class="btn btn-info">詳細</a></td>
