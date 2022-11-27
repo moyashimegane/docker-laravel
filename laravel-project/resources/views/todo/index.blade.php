@@ -16,8 +16,10 @@
         <table class="table">
           <thead>
             <tr>
-              <th>id</th>
-              <th>title</th>
+              <th>ToDo ID</th>
+              <th>タイトル</th>
+              <th>作成日</th>
+              <th>更新日</th>
               <th></th>
               <th></th>
               <th></th>
@@ -28,6 +30,8 @@
             <tr>
               <td>{{ $todo->id }}</td>
               <td>{{ $todo->title }}</td>
+              <td>{{ $todo->created_at }}</td>
+              <td>{{ $todo->updated_at }}</td>
               <td><a href="{{ url('todos/' . $todo->id) }}" class="btn btn-info">詳細</a></td>
               <td><a href="{{ url('todos/' . $todo->id . '/edit') }}" class="btn btn-primary">編集</a></td>
               <td>
