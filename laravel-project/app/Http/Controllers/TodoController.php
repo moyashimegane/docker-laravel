@@ -12,11 +12,15 @@ class TodoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Todo $todo)
+//    public function index()
     {
-        $todos = Todo::orderBy('created_at', 'desc')->get();
-
+//        $todos = Todo::orderBy('created_at', 'desc')->get();
+//        $todos = $todo->sortable()->paginate(10);
+//        $todos = Todo::sortable()->get();
+        $todos = Todo::sortable()->paginate(10);
         return view('todo.index', compact('todos'));
+//        return view('todo.index')->with('todos', $todos);
     }
 
     /**
