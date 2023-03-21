@@ -16,10 +16,10 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>@sortablelink('id')</th>
+                            <th><a href="todos?sort=id&order={{ $order }}">ID</a></th>
                             <th>タイトル</th>
-                            <th>@sortablelink('created_at', '作成日')</th>
-                            <th>@sortablelink('updated_at', '更新日')</th>
+                            <th>作成日</th>
+                            <th>更新日</th>
                             <th></th>
                             <th></th>
                             <th></th>

@@ -10,17 +10,35 @@ class TodoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
-    public function index(Todo $todo)
-//    public function index()
+//    public function index(Todo $todo)
+    public function index(Request $request)
     {
-//        $todos = Todo::orderBy('created_at', 'desc')->get();
-//        $todos = $todo->sortable()->paginate(10);
-//        $todos = Todo::sortable()->get();
-        $todos = Todo::sortable()->paginate(10);
-        return view('todo.index', compact('todos'));
-//        return view('todo.index')->with('todos', $todos);
+        $previous_url = url()->previous();
+        $length = explode('=', $previous_url);
+        if (count($length) === 1) {
+            $order = null;
+        } else {
+            $order = $length[count($length) - 1];
+        }
+
+        //パラメータが無い場合（デフォルト）はidの降順（desc）を設定
+        if (is_null($order)) {
+            $order_param = 'desc';
+            $order = 'desc';
+        } elseif ($order == "desc") {
+            $order_param = "asc";
+            $order = 'asc';
+        } else {
+            $order_param = "desc";
+            $order = 'desc';
+        }
+
+        $todos = Todo::orderBy('id', $order)->paginate();
+        return view('todo.index', [
+            'todos' => $todos,
+            'order' => $order_param,   //viewのリンクパラメータを設定
+        ]);
     }
 
     /**
@@ -81,7 +99,7 @@ class TodoController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param int                      $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
